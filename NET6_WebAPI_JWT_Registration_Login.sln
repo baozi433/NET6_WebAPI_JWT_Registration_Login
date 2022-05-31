@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET6_WebAPI_JWT_Registration_Login", "NET6_WebAPI_JWT_Registration_Login\NET6_WebAPI_JWT_Registration_Login.csproj", "{F72CE7BA-41F3-493F-8746-1A30589ACD57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F72CE7BA-41F3-493F-8746-1A30589ACD57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72CE7BA-41F3-493F-8746-1A30589ACD57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72CE7BA-41F3-493F-8746-1A30589ACD57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72CE7BA-41F3-493F-8746-1A30589ACD57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC35926E-B857-4659-8A9F-ED8BA50A39F5}
+	EndGlobalSection
+EndGlobal
