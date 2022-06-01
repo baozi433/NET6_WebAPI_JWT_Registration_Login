@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using NET6_WebAPI_JWT_Registration_Login.Models;
+using NET6_WebAPI_JWT_Registration_Login.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -14,10 +16,12 @@ namespace NET6_WebAPI_JWT_Registration_Login.Controllers
     {
         public static User user = new User();
         private readonly IConfiguration configuration;
+        private readonly IUserService userService;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration, IUserService userService)
         {
             this.configuration = configuration;
+            this.userService = userService;
         }
 
         [HttpPost("register")]
@@ -47,6 +51,13 @@ namespace NET6_WebAPI_JWT_Registration_Login.Controllers
 
             string token = CreateToken(user);
             return Ok(token);
+        }
+
+        [HttpGet("getRole"), Authorize(Roles = "admin")]
+        public async Task<ActionResult<string>> GetUserRole()
+        {
+            var role = userService.GetUserRole();
+            return Ok(role);
         }
 
         private string CreateToken(User user)
