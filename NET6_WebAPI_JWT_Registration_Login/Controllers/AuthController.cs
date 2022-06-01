@@ -26,6 +26,7 @@ namespace NET6_WebAPI_JWT_Registration_Login.Controllers
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
             
             user.UserName = request.UserName;
+            user.Role = request.Role;
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
@@ -53,7 +54,7 @@ namespace NET6_WebAPI_JWT_Registration_Login.Controllers
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, "Admin")
+                new Claim(ClaimTypes.Role, user.Role)
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
